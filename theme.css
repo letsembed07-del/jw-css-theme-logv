@@ -1,0 +1,275 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+  html,body{
+      margin:0;
+      padding:0;
+      height:100%;
+      overflow:hidden;
+      background:#050505;
+      font-family: "Montserrat", sans-serif!important;
+      font-optical-sizing: auto;
+      font-style: normal;
+      font-weight: 500;
+  }
+
+  #player{
+      width:100%;
+      height:100%;
+  }
+
+  /* CUSTOM MODAL (CC) */
+  .modal{
+      border-radius: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding:2rem 3rem;
+      backdrop-filter: blur(20px);
+      background-color: rgba(60, 60, 60, 0.4); 
+      color: #fff;
+  }
+  .modal .modal-body{ text-align: center; }
+  .modal .modal-body span, .modal .modal-body lasttime{ font-size: 1.2rem; font-weight: 300; color: #fff; }
+  .modal .modal-body lasttime{ font-size: .8rem; display: block; margin-bottom: 10px; margin-top: 10px; }
+
+  .modal .cs, .modal .cc{
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      opacity: 1;
+      margin: 0 5px;
+      transition: all .1s ease-in-out;
+  }
+  .modal .cs{ background: #fff; color: #000; border: none; }
+  .modal .cs:focus, .modal .cc:focus, .modal .cs:active, .modal .cc:active{ opacity: 0.7; }
+  .modal .cs:hover, .modal .cc:hover{ transform: scale(1.05); }
+
+  /**** CC SETTINGS SYSTEM (Custom Modal) ****/
+  .jw-text-track-display { top: 80% !important; bottom: 0px !important; }
+
+  .cc-settings__modal {
+      position: relative; display: flex; flex-direction: column; height: 99%; margin: 0;
+      /* Glass Theme for CC Settings */
+      background: rgba(40, 40, 40, 0.85); 
+      backdrop-filter: blur(20px);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 1;
+  }
+
+  .cc-settings__modal-header {
+      display: flex; width: 100%; justify-content: space-between;
+      background-color: rgba(255,255,255,0.05); 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .cc-settings__title { margin: 0; padding: 10px; color: #fff; font-size: 14px; font-weight: 600; text-transform: uppercase; }
+  .cc-settings__close { color: #fff; font-weight: bold; font-size: 20px; background: transparent; border: none; cursor: pointer; padding: 0 15px; }
+
+  .cc-settings { width: 100%; height: 100%; }
+  .cc-settings__form { position: relative; max-height: calc(100% - 78px); overflow-y: auto; overflow-x: hidden; padding: 10px 20px;}
+  @media (min-width: 1025px) {
+      .cc-settings { display: flex; justify-content: center; align-items: center; }
+      .cc-settings__overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 10; }
+      .cc-settings__modal { width: 1024px; max-height: 500px; margin-bottom: 32px; z-index: 11; }
+  }
+
+  .cc-settings__options { display: flex; flex-direction: column; justify-content: space-around; margin: 0 16px; border-top: 1px dashed rgba(255,255,255,0.2); padding-top:15px;}
+  @media (min-width: 600px) { .cc-settings__options { flex-direction: row; flex-wrap: wrap; } }
+
+  .cc-settings__option p { margin-bottom: 5px; font-weight: 600; }
+  .cc-settings__option select { display: block; width: 100%; height: 35px; border-radius: 6px; border: 1px solid #555; background: #222; color: #fff;}
+  .cc-settings__option input[type="range"] { width: 100%; }
+
+  .cc-settings__button-container {
+      position: absolute; bottom: 0; right: 0; width: 100%; height: 60px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: flex-end; padding-right: 20px;
+  }
+  .cc-settings__button { padding: 8px 20px; border: 0; border-radius: 6px; color: #fff; cursor: pointer; font-size: 14px; margin-left: 10px; }
+  .cc-settings__reset-button { background-color: #555; }
+  .cc-settings__save-button { background-color: #00aaeb; }
+  
+  .color-picker__color { border: 1px solid #ccc; }
+
+
+  /*** JWPLAYER UI DESIGN ***/
+  .jw-slider-container .jw-timesegment-background{
+      background-color: #c4dfdf54!important;
+      border-radius: 3px;
+  }
+  .jw-slider-container .jw-timesegment:hover .jw-timesegment-background{background-color: #c4dfdf54;}
+
+  .jw-slider-container .jw-timesegment-buffered{
+      background-color: #c5dfe12e!important;
+      border-radius: 3px;
+  }
+  .jw-slider-container .jw-timesegment:hover .jw-timesegment-buffered{background-color: #c5dfe12e;}
+  .jw-slider-container .jw-timesegment-progress{
+      background-color: #FFF!important;
+      border-radius: 3px;
+  }
+  
+  .jw-knob{
+      height: 10px; width: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 0px 4px rgba(255,255,255,0.4);
+  }
+
+  .jw-text-elapsed, .jw-text-duration { font-size: 14px; }
+  .jw-slider-horizontal .jw-slider-container { height: 10px; }
+
+  /* =========================================
+     CUSTOM SETTINGS: GLASS/TRANSPARENT WHITE
+     (Copied from your example)
+     ========================================= */
+
+  /* Settings container */
+  .jw-settings-menu{
+    background: rgba(255,255,255,0.15) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.35);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+
+  /* Top bar of settings */
+  .jw-settings-topbar{
+    background: rgba(255,255,255,0.10) !important;
+    padding: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+  }
+
+  /* Make sure icons in topbar (like back arrow) are white */
+  .jw-settings-topbar .jw-icon-inline {
+      color: #fff !important;
+  }
+
+  /* Submenu container */
+  .jw-settings-submenu{
+    background: transparent !important;
+  }
+
+  /* Settings Options List Items */
+  .jw-settings-content-item{
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 8px 14px;
+    margin: 2px 6px;
+    border-radius: 10px;
+    background: transparent;
+    opacity: 0.8;
+    transition: all .12s ease-in-out;
+  }
+
+  .jw-settings-content-item:hover{
+    background: rgba(255,255,255,0.25);
+    opacity: 1;
+  }
+
+  .jw-settings-content-item.jw-settings-item-active{
+    background: #ffffff;
+    color: #111111;
+    font-weight: 600;
+    opacity: 1;
+  }
+
+  /* Tooltips */
+  .jw-controlbar .jw-tooltip, .jw-settings-menu .jw-tooltip, .jw-time-tip{ background-color: transparent !important; }
+  .jw-controlbar .jw-tooltip .jw-text, .jw-settings-menu .jw-tooltip .jw-text, .jw-time-tip .jw-text{
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 4px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .jw-controlbar .jw-tooltip::after, .jw-settings-menu .jw-tooltip::after, .jw-time-tip::after{ display:none; }
+
+
+  /* Slightly bigger settings menu on larger breakpoints */
+  .jw-breakpoint-7 .jw-settings-menu,
+  .jw-breakpoint-6 .jw-settings-menu,
+  .jw-breakpoint-5 .jw-settings-menu,
+  .jw-breakpoint-4 .jw-settings-menu,
+  .jw-breakpoint-3 .jw-settings-menu {
+      max-height: 230px !important;
+      height: auto !important;
+  }
+
+  /* SETTINGS ICON ANIMATION */
+  .jwplayer .jw-icon-settings{
+      transition: transform 0.26s ease-in-out;
+      transform-origin: center;
+  }
+  .jwplayer .jw-icon-settings.settings-open{
+      transform: rotate(90deg);
+  }
+  .jwplayer .jw-icon-settings:hover{
+      transform: scale(1.1);
+  }
+
+  /* =========================================
+     ICON HANDLING (LUCIDE + CUSTOM PIP)
+     ========================================= */
+
+  /* Hide default SVG paths so we can use background-images */
+  .jw-svg-icon-cc-on path, .jw-svg-icon-cc-off path, .jw-svg-icon-settings path,
+  .jw-svg-icon-volume-0 path, .jw-svg-icon-volume-50 path, .jw-svg-icon-volume-100 path,
+  .jw-svg-icon-playback-rate path, .jw-svg-icon-fullscreen-on path, .jw-svg-icon-fullscreen-off path,
+  .jw-svg-icon-pause path, .jw-svg-icon-play path, .jw-svg-icon-pip-on path,
+  .jw-svg-icon-pip-off path, .jw-icon-rewind path {
+      display: none;
+  }
+
+  /* Base style for all Lucide Icons */
+  .jw-svg-icon-cc-on, .jw-svg-icon-cc-off, .jw-svg-icon-settings,
+  .jw-svg-icon-volume-0, .jw-svg-icon-volume-50, .jw-svg-icon-volume-100,
+  .jw-svg-icon-playback-rate, .jw-svg-icon-fullscreen-on, .jw-svg-icon-fullscreen-off,
+  .jw-svg-icon-pause, .jw-svg-icon-play, .jw-svg-icon-pip-on,
+  .jw-svg-icon-pip-off, .jw-icon-rewind, .jw-icon-cast {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      
+      /* Invert black icons to white */
+      filter: brightness(0) invert(1);
+  }
+
+  /* LUCIDE ICONS MAPPING */
+  .jw-svg-icon-cc-on, .jw-svg-icon-cc-off { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg"); opacity: 0.9; }
+  .jw-svg-icon-settings { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/settings.svg"); }
+  .jw-svg-icon-volume-0 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-x.svg"); }
+  .jw-svg-icon-volume-50 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-1.svg"); }
+  .jw-svg-icon-volume-100 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-2.svg"); }
+  .jw-svg-icon-playback-rate { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/gauge.svg"); }
+  .jw-svg-icon-fullscreen-on { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/maximize.svg"); }
+  .jw-svg-icon-fullscreen-off { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/minimize.svg"); }
+  .jw-svg-icon-pause { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/pause.svg"); }
+  .jw-state-idle .jw-svg-icon-play, .jw-state-paused .jw-svg-icon-play { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/play.svg"); }
+  
+  /* PiP - UPDATED WITH YOUR CUSTOM SVG */
+  .jw-svg-icon-pip-on,
+  .jw-svg-icon-pip-off {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22lucide%20lucide-picture-in-picture-icon%20lucide-picture-in-picture%22%3E%3Cpath%20d%3D%22M2%2010h6V4%22%2F%3E%3Cpath%20d%3D%22m2%204%206%206%22%2F%3E%3Cpath%20d%3D%22M21%2010V7a2%202%200%200%200-2-2h-7%22%2F%3E%3Cpath%20d%3D%22M3%2014v2a2%202%200%200%200%202%202h3%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2214%22%20width%3D%2210%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%3C%2Fsvg%3E");
+  }
+
+  .jw-svg-icon-custom-forward { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/forward.svg") !important; }
+  .jw-svg-icon-custom-backward { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/backward.svg") !important; }
+  .jw-icon-rewind { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/undo-2.svg") !important; width: 28px!important; height: 28px!important; background-size: contain; background-repeat: no-repeat; }
+
+  .jw-controlbar .jw-button-container .jw-icon { opacity: 0.8; transition: all 0.1s ease-in-out; }
+  .jw-controlbar .jw-button-container .jw-icon:hover { opacity: 1; }
+  .jw-controlbar .jw-button-container .jw-icon:active, .jw-controlbar .jw-button-container .jw-icon:focus { opacity: 0.7; }
+  
