@@ -1,109 +1,242 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-html,body{
-    margin:0;
-    padding:0;
-    height:100%;
-    overflow:hidden;
-    background:#050505;
-    font-family:"Montserrat",sans-serif!important;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #050505;
+    font-family: "Montserrat", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
 }
 
-#player{width:100%;height:100%;}
-
-/* ======================================================
-   MODAL GLASS
-====================================================== */
-.modal{
-    border-radius:2rem;
-    box-shadow:0 10px 40px rgba(0,0,0,.5);
-    border:1px solid rgba(255,255,255,.2);
-    padding:2rem 3rem;
-    backdrop-filter:blur(20px);
-    background:rgba(60,60,60,.4);
-    color:#fff;
+#player {
+    width: 100%;
+    height: 100%;
 }
 
-/* ======================================================
-   JW SLIDER
-====================================================== */
-.jw-slider-container .jw-timesegment-progress{background:#fff!important;}
-.jw-slider-container .jw-timesegment-background{background:#c4dfdf54!important;}
-.jw-slider-container .jw-timesegment-buffered{background:#c5dfe12e!important;}
-.jw-knob{
-    width:10px;height:10px;
-    background:#fff;
-    box-shadow:0 0 0 4px rgba(255,255,255,.4);
+/* =========================================
+   CUSTOM MODAL (CC & PROMPTS)
+   ========================================= */
+.modal {
+    border-radius: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem 3rem;
+    backdrop-filter: blur(20px);
+    background-color: rgba(60, 60, 60, 0.4);
+    color: #fff;
 }
 
-/* ======================================================
-   SETTINGS GLASS MENU
-====================================================== */
-.jw-settings-menu{
-    background:rgba(255,255,255,.15)!important;
-    backdrop-filter:blur(18px);
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.35);
-}
-.jw-settings-content-item{
-    color:#fff;
-    padding:8px 14px;
-    border-radius:10px;
-    opacity:.8;
-}
-.jw-settings-content-item:hover{background:rgba(255,255,255,.25);opacity:1;}
-.jw-settings-content-item.jw-settings-item-active{
-    background:#fff;color:#111;font-weight:600;opacity:1;
+.modal .modal-body { text-align: center; }
+.modal .modal-body span, .modal .modal-body lasttime { font-size: 1.2rem; font-weight: 300; color: #fff; }
+.modal .modal-body lasttime { font-size: .8rem; display: block; margin-bottom: 10px; margin-top: 10px; }
+
+.modal .cs, .modal .cc {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 1;
+    margin: 0 5px;
+    transition: all .1s ease-in-out;
 }
 
-/* ======================================================
-   ICON RESET
-====================================================== */
-.jw-svg-icon-cc-on path,.jw-svg-icon-cc-off path,
-.jw-svg-icon-settings path,.jw-svg-icon-audio-tracks path,
-.jw-svg-icon-play path,.jw-svg-icon-pause path,
-.jw-svg-icon-volume-0 path,.jw-svg-icon-volume-50 path,
-.jw-svg-icon-volume-100 path,.jw-svg-icon-fullscreen-on path,
-.jw-svg-icon-fullscreen-off path,.jw-svg-icon-pip-on path,
-.jw-svg-icon-pip-off path{display:none;}
+.modal .cs { background: #fff; color: #000; border: none; }
+.modal .cs:focus, .modal .cc:focus, .modal .cs:active, .modal .cc:active { opacity: 0.7; }
+.modal .cs:hover, .modal .cc:hover { transform: scale(1.05); }
 
-.jw-svg-icon-cc-on,.jw-svg-icon-cc-off,.jw-svg-icon-settings,
-.jw-svg-icon-audio-tracks,.jw-svg-icon-play,.jw-svg-icon-pause,
-.jw-svg-icon-volume-0,.jw-svg-icon-volume-50,.jw-svg-icon-volume-100,
-.jw-svg-icon-fullscreen-on,.jw-svg-icon-fullscreen-off,
-.jw-svg-icon-pip-on,.jw-svg-icon-pip-off{
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center;
-    filter:brightness(0) invert(1);
+/* =========================================
+   CC SETTINGS SYSTEM
+   ========================================= */
+.jw-text-track-display { top: 80% !important; bottom: 0px !important; }
+
+.cc-settings__modal {
+    position: relative; display: flex; flex-direction: column; height: 99%; margin: 0;
+    background: rgba(40, 40, 40, 0.85);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-/* ======================================================
-   ICON MAPPING
-====================================================== */
-.jw-svg-icon-play{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/play.svg");}
-.jw-svg-icon-pause{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/pause.svg");}
-.jw-svg-icon-settings{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/settings.svg");}
-.jw-svg-icon-volume-0{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-x.svg");}
-.jw-svg-icon-volume-50{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-1.svg");}
-.jw-svg-icon-volume-100{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-2.svg");}
-.jw-svg-icon-fullscreen-on{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/maximize.svg");}
-.jw-svg-icon-fullscreen-off{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/minimize.svg");}
-
-/* CC OFF / ON */
-.jw-svg-icon-cc-off{
-    background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg");
-    opacity:.5;
-}
-.jw-svg-icon-cc-on{
-    background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg");
-    filter:drop-shadow(0 0 6px rgba(0,208,255,.9));
+.cc-settings__modal-header {
+    display: flex; width: 100%; justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* AUDIO TRACK ICON */
-.jw-svg-icon-audio-tracks{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 5H3'/%3E%3Cpath d='M11 12H3'/%3E%3Cpath d='M11 19H3'/%3E%3Cpath d='M21 16V5'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E");
+.cc-settings__title { margin: 0; padding: 10px; color: #fff; font-size: 14px; font-weight: 600; text-transform: uppercase; }
+.cc-settings__close { color: #fff; font-weight: bold; font-size: 20px; background: transparent; border: none; cursor: pointer; padding: 0 15px; }
+
+.cc-settings { width: 100%; height: 100%; }
+.cc-settings__form { position: relative; max-height: calc(100% - 78px); overflow-y: auto; overflow-x: hidden; padding: 10px 20px; }
+
+@media (min-width: 1025px) {
+    .cc-settings { display: flex; justify-content: center; align-items: center; }
+    .cc-settings__overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 10; }
+    .cc-settings__modal { width: 1024px; max-height: 500px; margin-bottom: 32px; z-index: 11; }
 }
 
-/* FORCE AUDIO ICON */
-.jwplayer .jw-icon-audio-tracks{display:inline-flex!important;}
+.cc-settings__options { display: flex; flex-direction: column; justify-content: space-around; margin: 0 16px; border-top: 1px dashed rgba(255, 255, 255, 0.2); padding-top: 15px; }
+@media (min-width: 600px) { .cc-settings__options { flex-direction: row; flex-wrap: wrap; } }
+
+.cc-settings__option p { margin-bottom: 5px; font-weight: 600; }
+.cc-settings__option select { display: block; width: 100%; height: 35px; border-radius: 6px; border: 1px solid #555; background: #222; color: #fff; }
+.cc-settings__option input[type="range"] { width: 100%; }
+
+.cc-settings__button-container {
+    position: absolute; bottom: 0; right: 0; width: 100%; height: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    display: flex; align-items: center; justify-content: flex-end; padding-right: 20px;
+}
+.cc-settings__button { padding: 8px 20px; border: 0; border-radius: 6px; color: #fff; cursor: pointer; font-size: 14px; margin-left: 10px; }
+.cc-settings__reset-button { background-color: #555; }
+.cc-settings__save-button { background-color: #00aaeb; }
+
+/* =========================================
+   JWPLAYER UI DESIGN (Seekbar & Knobs)
+   ========================================= */
+.jw-slider-container .jw-timesegment-background { background-color: #c4dfdf54 !important; border-radius: 3px; }
+.jw-slider-container .jw-timesegment:hover .jw-timesegment-background { background-color: #c4dfdf54; }
+.jw-slider-container .jw-timesegment-buffered { background-color: #c5dfe12e !important; border-radius: 3px; }
+.jw-slider-container .jw-timesegment:hover .jw-timesegment-buffered { background-color: #c5dfe12e; }
+.jw-slider-container .jw-timesegment-progress { background-color: #FFF !important; border-radius: 3px; }
+
+.jw-knob {
+    height: 10px; width: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.4);
+}
+
+.jw-text-elapsed, .jw-text-duration { font-size: 14px; }
+.jw-slider-horizontal .jw-slider-container { height: 10px; }
+
+/* =========================================
+   GLASS SETTINGS MENU
+   ========================================= */
+.jw-settings-menu {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.jw-settings-topbar {
+    background: rgba(255, 255, 255, 0.10) !important;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.jw-settings-topbar .jw-icon-inline { color: #fff !important; }
+.jw-settings-submenu { background: transparent !important; }
+
+.jw-settings-content-item {
+    font-size: 13px; font-weight: 500; color: #ffffff;
+    padding: 8px 14px; margin: 2px 6px; border-radius: 10px;
+    background: transparent; opacity: 0.8; transition: all .12s ease-in-out;
+}
+
+.jw-settings-content-item:hover { background: rgba(255, 255, 255, 0.25); opacity: 1; }
+.jw-settings-content-item.jw-settings-item-active { background: #ffffff; color: #111111; font-weight: 600; opacity: 1; }
+
+/* Tooltips */
+.jw-controlbar .jw-tooltip, .jw-settings-menu .jw-tooltip, .jw-time-tip { background-color: transparent !important; }
+.jw-controlbar .jw-tooltip .jw-text, .jw-settings-menu .jw-tooltip .jw-text, .jw-time-tip .jw-text {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 8px;
+    color: #ffffff; font-size: 11px; padding: 4px 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.jw-controlbar .jw-tooltip::after, .jw-settings-menu .jw-tooltip::after, .jw-time-tip::after { display: none; }
+
+/* Breakpoint Fixes */
+.jw-breakpoint-7 .jw-settings-menu, .jw-breakpoint-6 .jw-settings-menu,
+.jw-breakpoint-5 .jw-settings-menu, .jw-breakpoint-4 .jw-settings-menu,
+.jw-breakpoint-3 .jw-settings-menu {
+    max-height: 230px !important;
+    height: auto !important;
+}
+
+/* =========================================
+   ICON HANDLING (LUCIDE)
+   ========================================= */
+
+/* Hide default SVG paths */
+.jw-svg-icon-cc-on path, .jw-svg-icon-cc-off path, .jw-svg-icon-settings path,
+.jw-svg-icon-volume-0 path, .jw-svg-icon-volume-50 path, .jw-svg-icon-volume-100 path,
+.jw-svg-icon-playback-rate path, .jw-svg-icon-fullscreen-on path, .jw-svg-icon-fullscreen-off path,
+.jw-svg-icon-pause path, .jw-svg-icon-play path, .jw-svg-icon-pip-on path,
+.jw-svg-icon-pip-off path, .jw-icon-rewind path, .jw-svg-icon-audio-tracks path {
+    display: none;
+}
+
+/* Base style for all Icons */
+.jw-svg-icon-cc-on, .jw-svg-icon-cc-off, .jw-svg-icon-settings,
+.jw-svg-icon-volume-0, .jw-svg-icon-volume-50, .jw-svg-icon-volume-100,
+.jw-svg-icon-playback-rate, .jw-svg-icon-fullscreen-on, .jw-svg-icon-fullscreen-off,
+.jw-svg-icon-pause, .jw-svg-icon-play, .jw-svg-icon-pip-on,
+.jw-svg-icon-pip-off, .jw-icon-rewind, .jw-icon-cast, .jw-svg-icon-audio-tracks {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1); /* Forces icons to White */
+}
+
+/* SETTINGS (Removed animation as requested) */
+.jw-svg-icon-settings { 
+    background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/settings.svg"); 
+}
+
+/* CAPTIONS (Subtitles) */
+.jw-svg-icon-cc-off { 
+    background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg"); 
+    opacity: 0.5 !important; /* Visual cue for "off" */
+}
+.jw-svg-icon-cc-on { 
+    background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg"); 
+    opacity: 1 !important; /* Visual cue for "on" */
+}
+
+/* AUDIO TRACKS (List Music Icon) */
+.jw-svg-icon-audio-tracks {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 5H3'/%3E%3Cpath d='M11 12H3'/%3E%3Cpath d='M11 19H3'/%3E%3Cpath d='M21 16V5'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E");
+}
+
+/* VOLUME & PLAYBACK */
+.jw-svg-icon-volume-0 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-x.svg"); }
+.jw-svg-icon-volume-50 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-1.svg"); }
+.jw-svg-icon-volume-100 { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-2.svg"); }
+.jw-svg-icon-playback-rate { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/gauge.svg"); }
+.jw-svg-icon-fullscreen-on { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/maximize.svg"); }
+.jw-svg-icon-fullscreen-off { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/minimize.svg"); }
+.jw-svg-icon-pause { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/pause.svg"); }
+.jw-state-idle .jw-svg-icon-play, .jw-state-paused .jw-svg-icon-play { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/play.svg"); }
+
+/* PICTURE IN PICTURE */
+.jw-svg-icon-pip-on, .jw-svg-icon-pip-off {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 10h6V4'/%3E%3Cpath d='m2 4 6 6'/%3E%3Cpath d='M21 10V7a2 2 0%200%200-2-2h-7'/%3E%3Cpath d='M3 14v2a2 2 0%200%200%202%202h3'/%3E%3Crect x='12' y='14' width='10' height='7' rx='1'/%3E%3C/svg%3E");
+}
+
+/* REWIND & CUSTOMS */
+.jw-icon-rewind { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/undo-2.svg") !important; width: 28px !important; height: 28px !important; }
+.jw-svg-icon-custom-forward { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/forward.svg") !important; }
+.jw-svg-icon-custom-backward { background-image: url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/backward.svg") !important; }
+
+/* ICON INTERACTIONS */
+.jw-controlbar .jw-button-container .jw-icon { opacity: 0.8; transition: all 0.1s ease-in-out; }
+.jw-controlbar .jw-button-container .jw-icon:hover { opacity: 1; transform: scale(1.1); }
+.jw-controlbar .jw-button-container .jw-icon:active, .jw-controlbar .jw-button-container .jw-icon:focus { opacity: 0.7; }
