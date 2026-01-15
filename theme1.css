@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html,body{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;
+    background:#050505;
+    font-family:"Montserrat",sans-serif!important;
+}
+
+#player{width:100%;height:100%;}
+
+/* ======================================================
+   MODAL GLASS
+====================================================== */
+.modal{
+    border-radius:2rem;
+    box-shadow:0 10px 40px rgba(0,0,0,.5);
+    border:1px solid rgba(255,255,255,.2);
+    padding:2rem 3rem;
+    backdrop-filter:blur(20px);
+    background:rgba(60,60,60,.4);
+    color:#fff;
+}
+
+/* ======================================================
+   JW SLIDER
+====================================================== */
+.jw-slider-container .jw-timesegment-progress{background:#fff!important;}
+.jw-slider-container .jw-timesegment-background{background:#c4dfdf54!important;}
+.jw-slider-container .jw-timesegment-buffered{background:#c5dfe12e!important;}
+.jw-knob{
+    width:10px;height:10px;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(255,255,255,.4);
+}
+
+/* ======================================================
+   SETTINGS GLASS MENU
+====================================================== */
+.jw-settings-menu{
+    background:rgba(255,255,255,.15)!important;
+    backdrop-filter:blur(18px);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.35);
+}
+.jw-settings-content-item{
+    color:#fff;
+    padding:8px 14px;
+    border-radius:10px;
+    opacity:.8;
+}
+.jw-settings-content-item:hover{background:rgba(255,255,255,.25);opacity:1;}
+.jw-settings-content-item.jw-settings-item-active{
+    background:#fff;color:#111;font-weight:600;opacity:1;
+}
+
+/* ======================================================
+   ICON RESET
+====================================================== */
+.jw-svg-icon-cc-on path,.jw-svg-icon-cc-off path,
+.jw-svg-icon-settings path,.jw-svg-icon-audio-tracks path,
+.jw-svg-icon-play path,.jw-svg-icon-pause path,
+.jw-svg-icon-volume-0 path,.jw-svg-icon-volume-50 path,
+.jw-svg-icon-volume-100 path,.jw-svg-icon-fullscreen-on path,
+.jw-svg-icon-fullscreen-off path,.jw-svg-icon-pip-on path,
+.jw-svg-icon-pip-off path{display:none;}
+
+.jw-svg-icon-cc-on,.jw-svg-icon-cc-off,.jw-svg-icon-settings,
+.jw-svg-icon-audio-tracks,.jw-svg-icon-play,.jw-svg-icon-pause,
+.jw-svg-icon-volume-0,.jw-svg-icon-volume-50,.jw-svg-icon-volume-100,
+.jw-svg-icon-fullscreen-on,.jw-svg-icon-fullscreen-off,
+.jw-svg-icon-pip-on,.jw-svg-icon-pip-off{
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    filter:brightness(0) invert(1);
+}
+
+/* ======================================================
+   ICON MAPPING
+====================================================== */
+.jw-svg-icon-play{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/play.svg");}
+.jw-svg-icon-pause{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/pause.svg");}
+.jw-svg-icon-settings{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/settings.svg");}
+.jw-svg-icon-volume-0{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-x.svg");}
+.jw-svg-icon-volume-50{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-1.svg");}
+.jw-svg-icon-volume-100{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/volume-2.svg");}
+.jw-svg-icon-fullscreen-on{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/maximize.svg");}
+.jw-svg-icon-fullscreen-off{background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/minimize.svg");}
+
+/* CC OFF / ON */
+.jw-svg-icon-cc-off{
+    background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg");
+    opacity:.5;
+}
+.jw-svg-icon-cc-on{
+    background-image:url("https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/icons/subtitles.svg");
+    filter:drop-shadow(0 0 6px rgba(0,208,255,.9));
+}
+
+/* AUDIO TRACK ICON */
+.jw-svg-icon-audio-tracks{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 5H3'/%3E%3Cpath d='M11 12H3'/%3E%3Cpath d='M11 19H3'/%3E%3Cpath d='M21 16V5'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E");
+}
+
+/* FORCE AUDIO ICON */
+.jwplayer .jw-icon-audio-tracks{display:inline-flex!important;}
